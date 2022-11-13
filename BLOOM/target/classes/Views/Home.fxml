@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Home">
+   <left>
+      <VBox prefHeight="558.0" prefWidth="169.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="149.0" prefWidth="169.0" styleClass="vbox_profile" stylesheets="@../css/styleSheet.css">
+               <children>
+                  <ImageView fitHeight="82.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
+                     <image>
+                        <Image url="@../icons/pngwing.com.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="42.0" prefWidth="156.0" text="ADMIN" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="338.0" prefWidth="169.0" spacing="13.0">
+               <children>
+                  <JFXButton prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Acceuil" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Donneurs" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Poches de sang" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="60.0" prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Clients" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="85.0" prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Facture" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="30.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <left>
+      <VBox prefHeight="558.0" prefWidth="169.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="149.0" prefWidth="169.0" styleClass="vbox_profile" stylesheets="@../css/styleSheet.css">
+               <children>
+                  <ImageView fitHeight="82.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
+                     <image>
+                        <Image url="@../icons/pngwing.com.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="42.0" prefWidth="156.0" text="ADMIN" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="338.0" prefWidth="169.0" spacing="13.0">
+               <children>
+                  <JFXButton prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Acceuil" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Donneurs" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Poches de sang" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="60.0" prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Clients" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="85.0" prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Facture" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="30.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <Pane prefHeight="655.0" prefWidth="1231.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="229.0" layoutY="217.0" prefHeight="84.0" prefWidth="338.0" text="Welcome Mr ADMIN">
+               <font>
+                  <Font name="Calibri Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

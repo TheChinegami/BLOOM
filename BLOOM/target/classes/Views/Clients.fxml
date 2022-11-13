@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Clients">
+    <left>
+        <VBox prefHeight="558.0" prefWidth="169.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER" prefHeight="149.0" prefWidth="169.0" styleClass="vbox_profile" stylesheets="@../css/styleSheet.css">
+                    <children>
+                        <ImageView fitHeight="82.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
+                            <image>
+                                <Image url="@../icons/pngwing.com.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="42.0" prefWidth="156.0" text="ADMIN" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font></Label>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="338.0" prefWidth="169.0" spacing="13.0">
+                    <children>
+                        <JFXButton prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Acceuil" textFill="WHITE">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets bottom="35.0" />
+                            </VBox.margin>
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                        </JFXButton>
+                        <JFXButton layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Donneurs" textFill="WHITE">
+                            <VBox.margin>
+                                <Insets bottom="35.0" />
+                            </VBox.margin>
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                        </JFXButton>
+                        <JFXButton layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Poches de sang" textFill="WHITE">
+                            <VBox.margin>
+                                <Insets bottom="20.0" />
+                            </VBox.margin>
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                        </JFXButton>
+                        <JFXButton layoutX="10.0" layoutY="60.0" prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Clients" textFill="WHITE">
+                            <VBox.margin>
+                                <Insets bottom="35.0" />
+                            </VBox.margin>
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                        </JFXButton>
+                        <JFXButton layoutX="10.0" layoutY="85.0" prefHeight="25.0" prefWidth="134.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Facture" textFill="WHITE">
+                            <VBox.margin>
+                                <Insets bottom="35.0" />
+                            </VBox.margin>
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                        </JFXButton>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="20.0" top="30.0" />
+                    </VBox.margin>
+                </VBox>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <Pane prefHeight="485.0" prefWidth="915.0" BorderPane.alignment="CENTER">
+            <children>
+                <Pane layoutX="83.0" layoutY="423.0" prefHeight="87.0" prefWidth="630.0" styleClass="donneurs_foot_color" stylesheets="@../css/styleSheet.css">
+                    <children>
+                        <JFXButton id="ajouterFacture" layoutX="32.0" layoutY="26.0" prefHeight="35.0" prefWidth="150.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Ajouter" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></JFXButton>
+                        <JFXButton id="SupprimerFacture" alignment="CENTER" layoutX="452.0" layoutY="26.0" prefHeight="35.0" prefWidth="150.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Supprimer" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton id="ajouterFacture" layoutX="240.0" layoutY="26.0" prefHeight="35.0" prefWidth="150.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Modifier" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                    </children>
+                </Pane>
+            <TableView layoutX="4.0" layoutY="3.0" prefHeight="414.0" prefWidth="788.0">
+              <columns>
+                <TableColumn prefWidth="274.0" text="ID du clients" />
+                <TableColumn prefWidth="261.0" text="Nom du clients" />
+                  <TableColumn prefWidth="252.0" text="Télephone du clients" />
+              </columns>
+            </TableView>
+            </children>
+        </Pane>
+    </center>
+</BorderPane>

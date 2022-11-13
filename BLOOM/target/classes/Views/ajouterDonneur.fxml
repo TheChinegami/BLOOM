@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="436.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ajouterDonneur">
+
+    <Pane layoutX="14.0" layoutY="61.0" prefHeight="48.0" prefWidth="335.0">
+        <children>
+            <TextField layoutX="122.0" layoutY="11.0" prefHeight="26.0" prefWidth="199.0" />
+         <Label layoutX="14.0" layoutY="16.0" prefHeight="17.0" prefWidth="83.0" text="Nom :" />
+        </children>
+    </Pane>
+   <Pane layoutX="14.0" layoutY="200.0" prefHeight="48.0" prefWidth="335.0">
+      <children>
+         <TextField layoutX="122.0" layoutY="11.0" prefHeight="26.0" prefWidth="199.0" />
+         <Label layoutX="14.0" layoutY="16.0" prefHeight="17.0" prefWidth="83.0" text="CIN :" />
+      </children>
+   </Pane>
+   <Pane layoutX="14.0" layoutY="133.0" prefHeight="48.0" prefWidth="335.0">
+      <children>
+         <TextField layoutX="122.0" layoutY="11.0" prefHeight="26.0" prefWidth="199.0" />
+         <Label layoutX="14.0" layoutY="16.0" prefHeight="17.0" prefWidth="83.0" text="Prenom :" />
+      </children>
+   </Pane>
+   <Pane layoutX="369.0" layoutY="61.0" prefHeight="48.0" prefWidth="335.0">
+      <children>
+         <TextField layoutX="122.0" layoutY="11.0" prefHeight="26.0" prefWidth="199.0" />
+         <Label layoutX="4.0" layoutY="16.0" prefHeight="17.0" prefWidth="113.0" text="Telephone personel :" />
+      </children>
+   </Pane>
+   <Pane layoutX="369.0" layoutY="133.0" prefHeight="48.0" prefWidth="335.0">
+      <children>
+         <TextField layoutX="122.0" layoutY="11.0" prefHeight="26.0" prefWidth="199.0" />
+         <Label layoutX="3.0" layoutY="16.0" prefHeight="17.0" prefWidth="113.0" text="Telephonr d'urgence" />
+      </children>
+   </Pane>
+   <Pane layoutX="369.0" layoutY="200.0" prefHeight="48.0" prefWidth="335.0">
+      <children>
+         <Label layoutY="16.0" prefHeight="17.0" prefWidth="113.0" text="Date de naissance :" />
+         <DatePicker layoutX="121.0" layoutY="12.0" />
+      </children>
+   </Pane>
+   <Pane layoutX="202.0" layoutY="305.0" prefHeight="48.0" prefWidth="335.0">
+      <children>
+         <Label layoutX="8.0" layoutY="16.0" prefHeight="17.0" prefWidth="113.0" text="Date de donation :" />
+         <DatePicker layoutX="121.0" layoutY="12.0" />
+      </children>
+   </Pane>
+   <JFXButton layoutX="610.0" layoutY="389.0" prefHeight="35.0" prefWidth="94.0" styleClass="wholeButton" stylesheets="@../css/styleSheet.css" text="Ajouter" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="13.0" />
+      </font>
+   </JFXButton>
+</AnchorPane>

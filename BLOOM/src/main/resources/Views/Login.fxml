@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Login">
+   <top>
+      <VBox alignment="CENTER" prefHeight="184.0" prefWidth="617.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="49.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/desktop_logo_2.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label prefHeight="115.0" prefWidth="381.0" text="Welcome">
+               <font>
+                  <Font name="Calibri Bold" size="85.0" />
+               </font>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <HBox prefHeight="428.0" prefWidth="752.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="297.0" fitWidth="339.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/3255337.jpg" />
+               </image>
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </ImageView>
+            <Pane prefHeight="298.0" prefWidth="336.0">
+               <children>
+                  <Pane layoutX="13.0" layoutY="27.0" prefHeight="78.0" prefWidth="294.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="5.0" prefHeight="18.0" prefWidth="277.0" text="Login : ">
+                           <font>
+                              <Font name="Calibri Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="loginId" layoutX="9.0" layoutY="39.0" prefHeight="26.0" prefWidth="215.0" promptText="User name" />
+                     </children>
+                  </Pane>
+                  <Button layoutY="207.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="320.0" styleClass="connexion_button" stylesheets="@../css/styleSheet.css" text="Connexion">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutY="254.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="320.0" styleClass="exit_button" stylesheets="@../css/styleSheet.css" text="Exit" textFill="#542c2c" />
+                  <Pane layoutX="13.0" layoutY="110.0" prefHeight="78.0" prefWidth="294.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="5.0" prefHeight="18.0" prefWidth="277.0" text="Password : ">
+                           <font>
+                              <Font name="Calibri Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <PasswordField id="passWordId" layoutX="9.0" layoutY="39.0" prefHeight="26.0" prefWidth="214.0" promptText="Password" />
+                     </children>
+                  </Pane>
+               </children>
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
