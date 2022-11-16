@@ -1,0 +1,30 @@
+.btn-login
+{
+    -fx-text-fill: #fff;
+    -fx-background-color: #ff4f5a;
+    -fx-cursor: hand;
+}
+
+.btn-login:hover
+{
+    -fx-background-color: #cd3a44;
+}
+
+#menu
+{
+    -fx-background-color: #2D2D2D;
+}
+
+.btn-menu
+{
+    -fx-text-fill: #919191;
+    -fx-background-color: #2D2D2D;
+}
+
+.btn-menu:hover
+{
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #ff4f5a;
+}
+
+
