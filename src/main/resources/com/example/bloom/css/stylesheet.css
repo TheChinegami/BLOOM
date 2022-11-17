@@ -19,12 +19,24 @@
 {
     -fx-text-fill: #919191;
     -fx-background-color: #2D2D2D;
+    -fx-cursor: hand;
 }
 
 .btn-menu:hover
 {
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #fff;
     -fx-background-color: #ff4f5a;
 }
 
+.btn-donors
+{
+    -fx-text-fill: #fff;
+    -fx-background-color: #2D2D2D;
+    -fx-cursor: hand;
+}
+
+.btn-donors:hover
+{
+    -fx-background-color: #ff4f5a;
+}
 

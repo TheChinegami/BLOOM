@@ -1,7 +1,8 @@
 package com.example.bloom.controller;
 
 import com.example.bloom.HelloApplication;
-import com.example.bloom.MyConnection;
+import com.example.bloom.Helper;
+import com.example.bloom.Model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,8 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginController {
@@ -42,14 +41,10 @@ public class LoginController {
         }else
         {
             try {
-                PreparedStatement st = MyConnection.getCon().prepareStatement("select username,password from user");
-                ResultSet rs = st.executeQuery();
-                String username = "",password = "";
-                rs.next();
-                username = rs.getString(1);
-                password = rs.getString(2);
+                User user = Helper.getHelper().getAdminstrator();
 
-                if(loginTextFieldUserName.getText().equals(username) && loginTextFieldPassword.getText().equals(password))
+                if(loginTextFieldUserName.getText().equals(user.getEmail())
+                        && loginTextFieldPassword.getText().equals(user.getPassword()))
                 {
                     openLoginSuccess(event);
                 }else

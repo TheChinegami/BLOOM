@@ -2,6 +2,7 @@ package com.example.bloom.Model;
 
 public abstract class Person {
     // attributes
+    private int id;
     private String cin;
     private String firstName;
     private String lastName;
@@ -9,41 +10,52 @@ public abstract class Person {
     // Constructors
     public Person(){};
 
-    public Person(String cin, String firstName, String lastName, String phoneNumber) {
+    public Person(int id, String cin, String firstName, String lastName, String phoneNumber) {
+        this.id = id;
         this.cin = cin;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
     }
 
+
     // getters
+
+    // setters and getters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getCin() {
         return cin;
+    }
+
+    public void setCin(String cin) {
+        this.cin = cin;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    // setters
-    public void setCin(String cin) {
-        this.cin = cin;
-    }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {

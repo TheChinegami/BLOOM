@@ -2,68 +2,67 @@ package com.example.bloom.Model;
 
 import java.util.Date;
 
-public class Bag {
+public class Bag
+{
     // attributes
     private int id;
-    private String donatorCin;
     private Date DonationDate;
+    private String donatorCin;
     private String BloodType;
-    private double price;
+    private Date expirationDate;
 
     // constructor
     public Bag() {
     }
 
-    public Bag(int id, String donatorCin, Date donationDate, String bloodType, double price) {
+    public Bag(int id, Date donationDate, String donatorCin, String bloodType, Date expirationDate) {
         this.id = id;
-        this.donatorCin = donatorCin;
         DonationDate = donationDate;
+        this.donatorCin = donatorCin;
         BloodType = bloodType;
-        this.price = price;
+        this.expirationDate = expirationDate;
     }
 
-    // getters
+    // setters and getters
     public int getId() {
         return id;
     }
 
-    public String getDonatorCin() {
-        return donatorCin;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getDonationDate() {
         return DonationDate;
     }
 
-    public String getBloodType() {
-        return BloodType;
+    public void setDonationDate(Date donationDate) {
+        DonationDate = donationDate;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    // setters
-    public void setId(int id) {
-        this.id = id;
+    public String getDonatorCin() {
+        return donatorCin;
     }
 
     public void setDonatorCin(String donatorCin) {
         this.donatorCin = donatorCin;
     }
 
-    public void setDonationDate(Date donnationDate) {
-        DonationDate = donnationDate;
+    public String getBloodType() {
+        return BloodType;
     }
 
     public void setBloodType(String bloodType) {
         BloodType = bloodType;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public Date getExpirationDate() {
+        return expirationDate;
     }
 
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
+    }
 
     // add new bag
     public void add() {
