@@ -1,4 +1,4 @@
-package com.example.bloom.Model;
+package com.example.bloom.model;
 
 import java.util.ArrayList;
 import java.util.Date;

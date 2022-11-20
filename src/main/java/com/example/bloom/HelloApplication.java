@@ -1,5 +1,6 @@
 package com.example.bloom;
 
+import com.example.bloom.functional.MyConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class HelloApplication extends Application {
     @Override
@@ -18,6 +20,17 @@ public class HelloApplication extends Application {
         // set the header icon to the stage
         Image icon = new Image(getClass().getResource("image/icon.png").openStream());
         stage.getIcons().add(icon);
+
+        try
+        {
+            MyConnection.getCon();
+        } catch (ClassNotFoundException e)
+        {
+            throw new RuntimeException(e);
+        } catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
 
         stage.setScene(scene);
         stage.setResizable(false);

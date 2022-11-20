@@ -1,13 +1,14 @@
-package com.example.bloom;
+package com.example.bloom.functional;
 
-import com.example.bloom.Model.Donor;
-import com.example.bloom.Model.User;
+import com.example.bloom.model.Donor;
+import com.example.bloom.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Helper
 {
@@ -21,18 +22,18 @@ public class Helper
     }
     private PreparedStatement statement;
     private ResultSet result;
-    public User getAdminstrator() throws SQLException, ClassNotFoundException {
+    public User getAdministrator() throws SQLException, ClassNotFoundException {
         statement = MyConnection.getCon().prepareStatement("select username,password from user");
         result = statement.executeQuery();
         result.next();
         User user = new User();
-        user.setEmail(result.getString(1));
-        user.setPassword(result.getString(2));
+        user.setUserName(result.getString("username"));
+        user.setPassword(result.getString("password"));
         return user;
     }
 
-    public ObservableList<Donor> getDonors() throws SQLException, ClassNotFoundException {
-        ObservableList<Donor> list = FXCollections.observableArrayList();
+    public ArrayList<Donor> getDonors() throws SQLException, ClassNotFoundException {
+        ArrayList<Donor> list = new ArrayList<>();
         statement = MyConnection.getCon().prepareStatement("select * from donor");
         result = statement.executeQuery();
         Donor donor;

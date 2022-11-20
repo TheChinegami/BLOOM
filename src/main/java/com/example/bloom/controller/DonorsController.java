@@ -1,7 +1,8 @@
 package com.example.bloom.controller;
 
-import com.example.bloom.Helper;
-import com.example.bloom.Model.Donor;
+import com.example.bloom.functional.Helper;
+import com.example.bloom.model.Donor;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -28,9 +29,9 @@ public class DonorsController implements Initializable {
     @FXML
     private Button donorsBtnSearch;
 
-    @FXML
-    private TableColumn<Donor,String> donorsTableColumnBirthDay;
 
+    @FXML
+    private TableColumn<Donor, String> donorsTableColumnBirthDate;
     @FXML
     private TableColumn<Donor,String> donorsTableColumnCin;
 
@@ -57,12 +58,12 @@ public class DonorsController implements Initializable {
         donorsTableColumnCin.setCellValueFactory(new PropertyValueFactory<Donor,String>("cin"));
         donorsTableColumnFirstName.setCellValueFactory(new PropertyValueFactory<Donor,String>("firstName"));
         donorsTableColumnLastName.setCellValueFactory(new PropertyValueFactory<Donor,String>("lastName"));
-        donorsTableColumnBirthDay.setCellValueFactory(new PropertyValueFactory<Donor,String>("birthDate"));
         donorsTableColumnPhoneNumber.setCellValueFactory(new PropertyValueFactory<Donor,String>("phoneNumber"));
+        donorsTableColumnBirthDate.setCellValueFactory(new PropertyValueFactory<Donor,String>("birthDate"));
 
         ObservableList list;
         try {
-             list = Helper.getHelper().getDonors();
+             list = FXCollections.observableArrayList(Helper.getHelper().getDonors());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
@@ -73,19 +74,17 @@ public class DonorsController implements Initializable {
 
         FilteredList<Donor> filteredList = new FilteredList<>(list, b -> true);
         donorTextFieldSearch.textProperty().addListener((observable,oldValue,newValue)->{
-            filteredList.setPredicate(donor->{
+            filteredList.setPredicate(donor ->{
                 if(newValue == null || newValue.isEmpty() || newValue.isBlank())
                 {
                     return true;
                 }
-
                 String lowerCaseFilter = newValue.toLowerCase();
 
                 if(Integer.toString(donor.getId()).toLowerCase().indexOf(lowerCaseFilter) > -1)
                 {
                     return true;
                 }
-
                 return false;
             });
         });
@@ -105,10 +104,10 @@ public class DonorsController implements Initializable {
                 donorsTableColumnFirstName.getCellData(index).toString(),
                 donorsTableColumnLastName.getCellData(index).toString(),
                 donorsTableColumnPhoneNumber.getCellData(index).toString(),
-                donorsTableColumnBirthDay.getCellData(index).toString()
+                donorsTableColumnBirthDate.getCellData(index).toString()
         );
 
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("I WON!");
         alert.setContentText(donor.toString());
         alert.showAndWait();

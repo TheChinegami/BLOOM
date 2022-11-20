@@ -17,12 +17,12 @@
         </Text>
         <TableView fx:id="donorsTableView" layoutX="29.0" layoutY="151.0" onMouseClicked="#onItemClick" prefHeight="567.0" prefWidth="1053.0" stylesheets="@../css/table-view.css">
             <columns>
-                <TableColumn fx:id="donorsTableColumnId" prefWidth="222.0" text="donor Id" />
+                <TableColumn fx:id="donorsTableColumnId" prefWidth="222.0" text="donator Id" />
                 <TableColumn fx:id="donorsTableColumnCin" prefWidth="156.0" text="National identity code" />
                 <TableColumn fx:id="donorsTableColumnFirstName" prefWidth="149.0" text="first name" />
                 <TableColumn fx:id="donorsTableColumnLastName" prefWidth="168.0" text="last name" />
-                <TableColumn fx:id="donorsTableColumnBirthDay" minWidth="4.0" prefWidth="132.0" text="birth day" />
-                <TableColumn fx:id="donorsTableColumnPhoneNumber" prefWidth="225.0" text="phone number" />
+                <TableColumn fx:id="donorsTableColumnPhoneNumber" prefWidth="174.0" text="phone number" />
+            <TableColumn fx:id="donorsTableColumnBirthDate" prefWidth="183.0" text="birth date" />
             </columns>
         </TableView>
         <TextField fx:id="donorTextFieldSearch" layoutX="169.0" layoutY="96.0" prefHeight="33.0" prefWidth="521.0" />
@@ -32,7 +32,7 @@
             </font>
         </Text>
         <Button fx:id="donorsBtnSearch" layoutX="706.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="181.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="search" />
-        <Button fx:id="donorsBtnAddNewDonor" layoutX="901.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="181.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="add new donor" />
+        <Button fx:id="donorsBtnAddNewDonor" layoutX="901.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="181.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="add new donator" />
     </children>
 
 </AnchorPane>

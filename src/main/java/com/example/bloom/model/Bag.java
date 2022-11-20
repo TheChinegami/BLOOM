@@ -1,21 +1,23 @@
-package com.example.bloom.Model;
+package com.example.bloom.model;
 
-import java.util.Date;
+import com.example.bloom.functional.CustomException;
+
+import java.time.LocalDate;
 
 public class Bag
 {
     // attributes
     private int id;
-    private Date DonationDate;
+    private LocalDate DonationDate;
     private String donatorCin;
     private String BloodType;
-    private Date expirationDate;
+    private LocalDate expirationDate;
 
     // constructor
     public Bag() {
     }
 
-    public Bag(int id, Date donationDate, String donatorCin, String bloodType, Date expirationDate) {
+    public Bag(int id, LocalDate donationDate, String donatorCin, String bloodType, LocalDate expirationDate) {
         this.id = id;
         DonationDate = donationDate;
         this.donatorCin = donatorCin;
@@ -32,11 +34,11 @@ public class Bag
         this.id = id;
     }
 
-    public Date getDonationDate() {
+    public LocalDate getDonationDate() {
         return DonationDate;
     }
 
-    public void setDonationDate(Date donationDate) {
+    public void setDonationDate(LocalDate donationDate) {
         DonationDate = donationDate;
     }
 
@@ -56,11 +58,11 @@ public class Bag
         BloodType = bloodType;
     }
 
-    public Date getExpirationDate() {
+    public LocalDate getExpirationDate() throws CustomException {
         return expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(LocalDate expirationDate) throws CustomException {
         this.expirationDate = expirationDate;
     }
 

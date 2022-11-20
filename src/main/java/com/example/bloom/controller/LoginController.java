@@ -1,8 +1,8 @@
 package com.example.bloom.controller;
 
 import com.example.bloom.HelloApplication;
-import com.example.bloom.Helper;
-import com.example.bloom.Model.User;
+import com.example.bloom.functional.Helper;
+import com.example.bloom.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,10 +40,11 @@ public class LoginController {
             showAlert("you didn't insert the password");
         }else
         {
-            try {
-                User user = Helper.getHelper().getAdminstrator();
+            try
+            {
+                User user = Helper.getHelper().getAdministrator();
 
-                if(loginTextFieldUserName.getText().equals(user.getEmail())
+                if(loginTextFieldUserName.getText().equals(user.getPassword())
                         && loginTextFieldPassword.getText().equals(user.getPassword()))
                 {
                     openLoginSuccess(event);
@@ -53,10 +54,9 @@ public class LoginController {
                 }
             }catch (SQLException ex)
             {
-                System.out.println("a problem in the login process");
                 ex.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                System.out.println("a problem in the class of the connection");
+            } catch (ClassNotFoundException e)
+            {
                 e.printStackTrace();
             }
         }

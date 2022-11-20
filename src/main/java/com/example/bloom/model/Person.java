@@ -1,4 +1,4 @@
-package com.example.bloom.Model;
+package com.example.bloom.model;
 
 public abstract class Person {
     // attributes
