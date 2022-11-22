@@ -5,7 +5,7 @@ This project is a small university project made so we can exersice our JAVA codi
 this cool platform !
 
 This project basically is a bank donnation managment demo application that is now still under developpment that you will using it be able to control the process of the 
-blood donation by managing the data of each donor and the blood bag donated through out the application .
+blood donation by managing the data of each donor1 and the blood bag donated through out the application .
 
 The team members are :
 

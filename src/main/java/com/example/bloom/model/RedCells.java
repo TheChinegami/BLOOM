@@ -11,8 +11,8 @@ public class RedCells extends Bag{
     public RedCells() {
     }
 
-    public RedCells(int id, LocalDate donationDate, String donatorCin, String bloodType, LocalDate expirationDate) {
-        super(id, donationDate, donatorCin, bloodType, expirationDate);
+    public RedCells(int id, LocalDate donationDate, String cin, String bloodType, LocalDate expirationDate) {
+        super(id, donationDate, cin, bloodType, expirationDate);
     }
 
     // calculate expiration date
@@ -27,7 +27,8 @@ public class RedCells extends Bag{
         if(getDonationDate()==null)
         {
             throw new CustomException("you didn't set the donation date yet!");
-        }else {
+        }else
+        {
             LocalDate myDate = this.getDonationDate().plus(42, ChronoUnit.DAYS);
             return myDate;
         }

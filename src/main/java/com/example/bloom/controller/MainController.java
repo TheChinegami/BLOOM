@@ -49,7 +49,7 @@ public class MainController {
     private StackPane myCenter;
 
     @FXML
-    void onClckDonors(ActionEvent event) {
+    void onClickDonors(ActionEvent event) {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/donors.fxml"));
             Parent root = fxmlLoader.load();

@@ -15,24 +15,26 @@
                 <Font size="48.0" />
             </font>
         </Text>
-        <TableView fx:id="donorsTableView" layoutX="29.0" layoutY="151.0" onMouseClicked="#onItemClick" prefHeight="567.0" prefWidth="1053.0" stylesheets="@../css/table-view.css">
+        <TableView fx:id="donors_tv" layoutX="29.0" layoutY="169.0" onMouseClicked="#onItemClick" prefHeight="549.0" prefWidth="1066.0" stylesheets="@../css/table-view.css">
             <columns>
-                <TableColumn fx:id="donorsTableColumnId" prefWidth="222.0" text="donator Id" />
-                <TableColumn fx:id="donorsTableColumnCin" prefWidth="156.0" text="National identity code" />
-                <TableColumn fx:id="donorsTableColumnFirstName" prefWidth="149.0" text="first name" />
-                <TableColumn fx:id="donorsTableColumnLastName" prefWidth="168.0" text="last name" />
-                <TableColumn fx:id="donorsTableColumnPhoneNumber" prefWidth="174.0" text="phone number" />
-            <TableColumn fx:id="donorsTableColumnBirthDate" prefWidth="183.0" text="birth date" />
+                <TableColumn fx:id="donors_tc_donorId" prefWidth="77.0" text="donor1 id" />
+                <TableColumn fx:id="donors_tc_cin" prefWidth="166.0" text="National identity code" />
+                <TableColumn fx:id="donors_tc_firstname" prefWidth="119.0" text="first name" />
+                <TableColumn fx:id="donors_tc_lastname" prefWidth="131.0" text="last name" />
+            <TableColumn fx:id="donors_tc_age" prefWidth="97.0" text="age" />
+                <TableColumn fx:id="donors_tc_phonenumber" prefWidth="205.0" text="phone number" />
+            <TableColumn fx:id="donors_tc_emergencynumber" prefWidth="181.0" text="emergency number" />
+            <TableColumn fx:id="donors_tc_sickness" prefWidth="89.0" text="sickness" />
             </columns>
         </TableView>
-        <TextField fx:id="donorTextFieldSearch" layoutX="169.0" layoutY="96.0" prefHeight="33.0" prefWidth="521.0" />
+        <TextField fx:id="donors_tf_search" layoutX="169.0" layoutY="96.0" prefHeight="33.0" prefWidth="521.0" />
         <Text layoutX="29.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search by any field" wrappingWidth="133.13671875">
             <font>
                 <Font size="14.0" />
             </font>
         </Text>
-        <Button fx:id="donorsBtnSearch" layoutX="706.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="181.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="search" />
-        <Button fx:id="donorsBtnAddNewDonor" layoutX="901.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="181.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="add new donator" />
+        <Button fx:id="donors_btn_search" layoutX="706.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="181.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="search" />
+        <Button fx:id="donors_btn_addnewdonor" layoutX="901.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="181.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="add new donator" />
     </children>
 
 </AnchorPane>

@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class LoginController {
@@ -70,18 +71,22 @@ public class LoginController {
     // if the username and the password is correct
     public void openLoginSuccess(ActionEvent event)
     {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/main.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            stage.show();
-        } catch (Exception e) {
-            System.out.println("a problem while opening the main stage");
-            e.printStackTrace();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/main.fxml"));
+        Parent root = null;
+
+        try
+        {
+            root = fxmlLoader.load();
+        } catch (IOException e)
+        {
+            throw new RuntimeException(e);
         }
+
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
     }
 
     // this method invoke the alert dialog
