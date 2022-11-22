@@ -3,22 +3,43 @@ package com.example.bloom.model;
 public class Donor extends Person {
     // attributes
 
-    private String birthDate;
+    private long age;
+    private boolean sickness;
+    private String emergencyNumber;
     // constructor
     public Donor() {
     }
 
-    public Donor(int id, String cin, String firstName, String lastName, String phoneNumber, String birthDate) {
-        super(id,cin, firstName, lastName, phoneNumber);
-        this.birthDate = birthDate;
+    public Donor(int id, String cin, String firstName, String lastName, String phoneNumber, long age, String emergencyNumber, boolean sickness) {
+        super(id, cin, firstName, lastName, phoneNumber);
+        this.age = age;
+        this.sickness = sickness;
+        this.emergencyNumber = emergencyNumber;
     }
 
-    public String getBirthDate() {
-        return birthDate;
+    // getters and setters
+    public long getAge() {
+        return age;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public void setAge(long age) {
+        this.age = age;
+    }
+
+    public boolean isSickness() {
+        return sickness;
+    }
+
+    public void setSickness(boolean sickness) {
+        this.sickness = sickness;
+    }
+
+    public String getEmergencyNumber() {
+        return emergencyNumber;
+    }
+
+    public void setEmergencyNumber(String emergencyNumber) {
+        this.emergencyNumber = emergencyNumber;
     }
 
     // add new user
@@ -46,6 +67,8 @@ public class Donor extends Person {
                 ", first name : "+this.getFirstName()+
                 ", last name : "+this.getLastName()+
                 ", phone number : "+this.getPhoneNumber()+
-                ", birth date : "+this.birthDate;
+                ", birth date : "+this.age+
+                ", emergency number : "+this.emergencyNumber+
+                ", sickness : "+this.sickness;
     }
 }
