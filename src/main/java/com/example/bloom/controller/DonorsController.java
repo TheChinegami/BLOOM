@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -136,16 +137,17 @@ public class DonorsController implements Initializable {
     @FXML
     void addNewDonorAction(ActionEvent event) {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/add-new-donor.fxml"));
-        Stage stage = new Stage();
         Scene scene = null;
-
+        Image icon = null;
         try
         {
+            icon = new Image(HelloApplication.class.getResource("image/icon.png").openStream()); // set the header icon to the stage
             scene = new Scene(fxmlLoader.load(),400,700);
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        Stage stage = new Stage();
+        stage.getIcons().add(icon);
         stage.setScene(scene);
         stage.show();
     }
