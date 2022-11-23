@@ -1,17 +1,25 @@
 package com.example.bloom.controller;
 
+import com.example.bloom.HelloApplication;
 import com.example.bloom.functional.Helper;
 import com.example.bloom.model.Donor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -123,5 +131,22 @@ public class DonorsController implements Initializable {
         alert.setTitle("I WON!");
         alert.setContentText(donor.toString());
         alert.showAndWait();
+    }
+
+    @FXML
+    void addNewDonorAction(ActionEvent event) {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/add-new-donor.fxml"));
+        Stage stage = new Stage();
+        Scene scene = null;
+
+        try
+        {
+            scene = new Scene(fxmlLoader.load(),400,700);
+        } catch (IOException e)
+        {
+            throw new RuntimeException(e);
+        }
+        stage.setScene(scene);
+        stage.show();
     }
 }

@@ -34,7 +34,7 @@
             </font>
         </Text>
         <Button fx:id="donors_btn_search" layoutX="706.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="181.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="search" />
-        <Button fx:id="donors_btn_addnewdonor" layoutX="901.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="181.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="add new donator" />
+        <Button fx:id="donors_btn_addnewdonor" layoutX="901.0" layoutY="96.0" mnemonicParsing="false" onAction="#addNewDonorAction" prefHeight="33.0" prefWidth="181.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="add new donor" />
     </children>
 
 </AnchorPane>

@@ -88,12 +88,6 @@ public class MainController {
     }
 
     @FXML
-    void onClickExit(ActionEvent event) {
-        Stage stage = (Stage)(((Node)event.getSource()).getScene().getWindow());
-        stage.close();
-    }
-
-    @FXML
     void onClickInvoices(ActionEvent event) {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/invoices.fxml"));
@@ -143,6 +137,12 @@ public class MainController {
         {
             ex.printStackTrace();
         }
+    }
+
+    @FXML
+    void onClickExit(ActionEvent event) {
+        Stage stage = (Stage)(((Node)event.getSource()).getScene().getWindow());
+        stage.close();
     }
 
 }
