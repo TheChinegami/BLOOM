@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,7 +28,6 @@ import java.util.ResourceBundle;
 
 public class DonorsController implements Initializable {
     private Integer index;
-
 
     @FXML
     private Button donors_btn_addnewdonor;
@@ -80,7 +80,8 @@ public class DonorsController implements Initializable {
         donors_tc_sickness.setCellValueFactory(new PropertyValueFactory<Donor,String>("sickness"));
 
         ObservableList list;
-        try {
+        try
+        {
              list = FXCollections.observableArrayList(Helper.getHelper().getDonors());
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -100,6 +101,9 @@ public class DonorsController implements Initializable {
                 String lowerCaseFilter = newValue.toLowerCase();
 
                 if(Integer.toString(donor.getId()).toLowerCase().indexOf(lowerCaseFilter) > -1)
+                {
+                    return true;
+                }else if(donor.getCin().toLowerCase().indexOf(lowerCaseFilter) > -1)
                 {
                     return true;
                 }
@@ -151,4 +155,5 @@ public class DonorsController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
 }

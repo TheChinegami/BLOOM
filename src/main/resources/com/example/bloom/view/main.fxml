@@ -26,7 +26,7 @@
                   <Insets bottom="10.0" left="30.0" top="10.0" />
                </padding>
                <font>
-                  <Font name="Arial Bold" size="14.0" />
+                  <Font name="Arial Bold" size="16.0" />
                </font>
             </Button>
             <Button fx:id="menuBtnBags" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#onClickBags" prefHeight="40.0" prefWidth="240.0" styleClass="btn-menu" stylesheets="@../css/stylesheet.css" text="Bags">

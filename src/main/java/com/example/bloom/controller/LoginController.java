@@ -85,6 +85,7 @@ public class LoginController {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(true);
         stage.setMaximized(true);
         stage.show();
     }

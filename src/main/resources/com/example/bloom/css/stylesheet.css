@@ -20,12 +20,15 @@
     -fx-text-fill: #919191;
     -fx-background-color: #2D2D2D;
     -fx-cursor: hand;
+    -fx-font-size: 16;
 }
 
 .btn-menu:hover
 {
     -fx-text-fill: #fff;
     -fx-background-color: #c10000;
+    -fx-font-family: "urbanist bold";
+    -fx-font-size: 16;
 }
 
 .btn-donors
@@ -40,3 +43,59 @@
     -fx-background-color: #c10000;
 }
 
+.shadow-pane
+{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);
+}
+
+
+.pane-radius
+{
+    -fx-background-radius: 20;
+}
+
+
+
+.text-field1
+{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,5.0);
+    -fx-background-radius: 20;
+}
+
+.text-field1 .text
+{
+}
+
+.font1
+{
+    -fx-font-family: "urbanist bold";
+}
+
+.font2
+{
+    -fx-font-family: "comfortaa";
+}
+
+.button1
+{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,5.0);
+    -fx-background-radius: 20;
+    -fx-text-fill: #fff;
+    -fx-background-color: #2D2D2D;
+    -fx-cursor: hand;
+    -fx-padding: 8, 0, 8, 0;
+}
+.button1 .text
+{
+    -fx-font-size: 16;
+    -fx-font-family: "urbanist";
+}
+
+.button1:hover
+{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,5.0);
+    -fx-background-radius: 20;
+    -fx-text-fill: #fff;
+    -fx-background-color: #c10000;
+    -fx-cursor: hand;
+}
