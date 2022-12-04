@@ -4,13 +4,13 @@ public class Donor extends Person {
     // attributes
 
     private long age;
-    private boolean sickness;
+    private String sickness;
     private String emergencyNumber;
     // constructor
     public Donor() {
     }
 
-    public Donor(int id, String cin, String firstName, String lastName, String phoneNumber, long age, String emergencyNumber, boolean sickness) {
+    public Donor(int id, String cin, String firstName, String lastName, String phoneNumber, long age, String emergencyNumber, String sickness) {
         super(id, cin, firstName, lastName, phoneNumber);
         this.age = age;
         this.sickness = sickness;
@@ -26,11 +26,11 @@ public class Donor extends Person {
         this.age = age;
     }
 
-    public boolean isSickness() {
+    public String isSickness() {
         return sickness;
     }
 
-    public void setSickness(boolean sickness) {
+    public void setSickness(String sickness) {
         this.sickness = sickness;
     }
 

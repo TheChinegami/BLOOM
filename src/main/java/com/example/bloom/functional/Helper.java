@@ -2,6 +2,7 @@ package com.example.bloom.functional;
 
 import com.example.bloom.model.Donor;
 import com.example.bloom.model.User;
+import javafx.scene.control.Alert;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -39,12 +40,16 @@ public class Helper
         LocalDate d1;
         LocalDate d2;
         long age;
+        Boolean sickcheck;
+        String Sick ;
         Donor donor;
         while(result.next())
         {
             d2 = LocalDate.now();
             d1 = result.getDate("birth_date").toLocalDate();
             age = ChronoUnit.DAYS.between(d1,d2)/365;
+            sickcheck = result.getBoolean("Sickness");
+            if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
             donor = new Donor(
                     result.getInt("id"),
                     result.getString("CIN"),
@@ -53,9 +58,59 @@ public class Helper
                     result.getString("phone_number"),
                     age,
                     result.getString("emergency_number"),
-                    result.getBoolean("sickness"));
+                    Sick);
             list.add(donor);
         }
         return list;
     }
+
+
+    public ArrayList<Donor> getDonorByindex(int id) throws SQLException,ClassNotFoundException{
+
+        ArrayList<Donor> list = new ArrayList<>();
+        statement = MyConnection.getCon().prepareStatement("select * from donor where id ="+id);
+        result = statement.executeQuery();
+        LocalDate d1;
+        LocalDate d2;
+        long age;
+        Boolean sickcheck;
+        String Sick ;
+        Donor donor;
+        while(result.next())
+        {
+            d2 = LocalDate.now();
+            d1 = result.getDate("birth_date").toLocalDate();
+            age = ChronoUnit.DAYS.between(d1,d2)/365;
+            sickcheck = result.getBoolean("Sickness");
+            if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
+            donor = new Donor(
+                    result.getInt("id"),
+                    result.getString("CIN"),
+                    result.getString("first_name"),
+                    result.getString("last_name"),
+                    result.getString("phone_number"),
+                    age,
+                    result.getString("emergency_number"),
+                    Sick);
+            list.add(donor);
+        }
+        return list;
+
+    }
+
+    public void showAlert(String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("warning");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+    public void showSuccess(String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 }

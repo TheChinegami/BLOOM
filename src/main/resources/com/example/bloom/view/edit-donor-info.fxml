@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bloom.controller.AddNewDonorController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bloom.controller.EditDonorInformationController">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add new donor" wrappingWidth="282.13671875">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edit donor informations" wrappingWidth="282.13671875">
          <font>
             <Font size="24.0" />
          </font>
@@ -30,7 +28,7 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="adddonor_tf_firstname" prefHeight="35.0" prefWidth="296.0">
+      <TextField fx:id="editdonor_tf_firstname" prefHeight="35.0" prefWidth="296.0">
          <VBox.margin>
             <Insets left="40.0" right="40.0" top="10.0" />
          </VBox.margin>
@@ -51,7 +49,7 @@
             <Insets left="40.0" top="10.0" />
          </VBox.margin>
       </Text>
-      <TextField fx:id="adddonor_tf_lastname" prefHeight="35.0" prefWidth="296.0">
+      <TextField fx:id="editdonor_tf_lastname" prefHeight="35.0" prefWidth="296.0">
          <VBox.margin>
             <Insets left="40.0" right="40.0" top="10.0" />
          </VBox.margin>
@@ -72,7 +70,7 @@
             <Insets left="40.0" top="10.0" />
          </VBox.margin>
       </Text>
-      <TextField fx:id="adddonor_tf_cin" prefHeight="35.0" prefWidth="296.0">
+      <TextField fx:id="editdonor_tf_cin" prefHeight="35.0" prefWidth="296.0">
          <VBox.margin>
             <Insets left="40.0" right="40.0" top="10.0" />
          </VBox.margin>
@@ -93,7 +91,7 @@
             <Insets left="40.0" top="10.0" />
          </VBox.margin>
       </Text>
-      <DatePicker fx:id="adddonor_dp_birthdate" prefHeight="35.0" prefWidth="322.0" promptText="DD/MM/YYYY" onKeyTyped="#KeytypeDatepicker">
+      <DatePicker fx:id="editdonor_dp_birthdate" prefHeight="35.0" prefWidth="322.0" promptText="DD/MM/YYYY">
          <VBox.margin>
             <Insets left="40.0" top="10.0" />
          </VBox.margin>
@@ -114,7 +112,7 @@
             <Insets left="40.0" top="10.0" />
          </VBox.margin>
       </Text>
-      <TextField fx:id="adddonor_tf_phonenumber" prefHeight="35.0" prefWidth="296.0" promptText="XX-XX-XX-XX-XX">
+      <TextField fx:id="editdonor_tf_phonenumber" prefHeight="35.0" prefWidth="296.0" promptText="XX-XX-XX-XX-XX">
          <VBox.margin>
             <Insets left="40.0" right="40.0" top="10.0" />
          </VBox.margin>
@@ -135,17 +133,44 @@
             <Insets left="40.0" top="10.0" />
          </VBox.margin>
       </Text>
-      <TextField fx:id="adddonor_tf_emergencynumber" prefHeight="35.0" prefWidth="296.0" promptText="XX-XX-XX-XX-XX">
+      <TextField fx:id="editdonor_tf_emergencynumber" prefHeight="35.0" prefWidth="296.0" promptText="XX-XX-XX-XX-XX">
          <VBox.margin>
             <Insets left="40.0" right="40.0" top="10.0" />
          </VBox.margin>
       </TextField>
-      <Button fx:id="adddonor_btn_add" mnemonicParsing="false" onAction="#addAction" prefHeight="41.0" prefWidth="320.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="add">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sickness :">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="40.0" top="10.0" />
+         </VBox.margin>
+      </Text>
+      <RadioButton fx:id="editdonor_rb_true" mnemonicParsing="false" text="Positive">
+         <VBox.margin>
+            <Insets left="40.0" top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font size="15.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="Sickness" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="editdonor_rb_false" mnemonicParsing="false" selected="true" text="Negative" toggleGroup="$Sickness">
+         <VBox.margin>
+            <Insets left="200.0" top="-21.0" />
+         </VBox.margin>
+         <font>
+            <Font size="15.0" />
+         </font>
+      </RadioButton>
+      <Button fx:id="editdonor_btn_edit" mnemonicParsing="false" onAction="#editAction" prefHeight="41.0" prefWidth="320.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="Edit">
          <VBox.margin>
             <Insets left="40.0" right="40.0" top="20.0" />
          </VBox.margin>
       </Button>
-      <Button fx:id="adddonor_btn_cancel" mnemonicParsing="false" onAction="#cancelAction" prefHeight="41.0" prefWidth="320.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="cancel">
+      <Button fx:id="edirdonor_btn_cancel" mnemonicParsing="false" onAction="#cancelAction" prefHeight="41.0" prefWidth="320.0" styleClass="btn-donors" stylesheets="@../css/stylesheet.css" text="cancel">
          <VBox.margin>
             <Insets left="40.0" right="40.0" top="20.0" />
          </VBox.margin>

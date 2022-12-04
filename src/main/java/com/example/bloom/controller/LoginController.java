@@ -35,10 +35,10 @@ public class LoginController {
     void loginAction(ActionEvent event) {
         if(loginTextFieldUserName.getText().equals(""))
         {
-            showAlert("you didn't insert the username");
+            Helper.getHelper().showAlert("you didn't insert the username");
         }else if(loginTextFieldPassword.getText().equals(""))
         {
-            showAlert("you didn't insert the password");
+            Helper.getHelper().showAlert("you didn't insert the password");
         }else
         {
             try
@@ -51,7 +51,7 @@ public class LoginController {
                     openLoginSuccess(event);
                 }else
                 {
-                    showAlert("the username or the password is uncorrecte");
+                    Helper.getHelper().showAlert("the username or the password is uncorrecte");
                 }
             }catch (SQLException ex)
             {
@@ -91,12 +91,6 @@ public class LoginController {
     }
 
     // this method invoke the alert dialog
-    private void showAlert(String message)
-    {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("warning");
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+
 
 }

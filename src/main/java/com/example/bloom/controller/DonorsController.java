@@ -118,24 +118,41 @@ public class DonorsController implements Initializable {
 
     @FXML
     public void onItemClick(MouseEvent mouseEvent) {
+
+
         index = donors_tv.getSelectionModel().getSelectedIndex();
 
-        Donor donor = new Donor(
-                Integer.parseInt(donors_tc_donorId.getCellData(index).toString()),
-                donors_tc_cin.getCellData(index).toString(),
-                donors_tc_firstname.getCellData(index).toString(),
-                donors_tc_lastname.getCellData(index).toString(),
-                donors_tc_phonenumber.getCellData(index).toString(),
-                Integer.parseInt(donors_tc_age.getCellData(index).toString()),
-                donors_tc_emergencynumber.getCellData(index).toString(),
-//                donors_tc_sickness.getCellData(index).toString()
-                false
-        );
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/edit-donor-info.fxml"));
+        Scene scene = null;
+        Image icon = null;
+        try
+        {
+            icon = new Image(HelloApplication.class.getResource("image/icon.png").openStream()); // set the header icon to the stage
+            scene = new Scene(fxmlLoader.load(),400,700);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage stage = new Stage();
+        stage.getIcons().add(icon);
+        stage.setScene(scene);
+        stage.show();
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("I WON!");
-        alert.setContentText(donor.toString());
-        alert.showAndWait();
+
+     //   Donor donor = new Donor(
+       //         Integer.parseInt(donors_tc_donorId.getCellData(index).toString()),
+         //       donors_tc_cin.getCellData(index).toString(),
+           //     donors_tc_firstname.getCellData(index).toString(),
+             //   donors_tc_lastname.getCellData(index).toString(),
+              //  donors_tc_phonenumber.getCellData(index).toString(),
+              //  Integer.parseInt(donors_tc_age.getCellData(index).toString()),
+              //  donors_tc_emergencynumber.getCellData(index).toString(),
+              //  donors_tc_sickness.getCellData(index).toString()
+       // );
+
+     //   Alert alert = new Alert(Alert.AlertType.INFORMATION);
+     //   alert.setTitle("I WON!");
+     //   alert.setContentText(donor.toString());
+     //   alert.showAndWait();
     }
 
     @FXML
