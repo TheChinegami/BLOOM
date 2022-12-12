@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/main.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("bloom");
 
@@ -33,7 +33,7 @@ public class HelloApplication extends Application {
         }
 
         stage.setScene(scene);
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.show();
     }
 

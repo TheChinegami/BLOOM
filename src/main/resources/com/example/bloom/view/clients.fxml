@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -11,11 +16,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="701.0" prefWidth="1125.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bloom.controller.ClientsController">
+<AnchorPane prefHeight="701.0" prefWidth="1125.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bloom.controller.ClientsController">
    <children>
       <Pane layoutX="12.0" layoutY="12.0" prefHeight="676.0" prefWidth="1101.0" style="-fx-background-color: #fff;" stylesheets="@../css/stylesheet.css">
          <children>
+            <Text layoutX="15.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="search by the id or the the name of the client :" wrappingWidth="335.0">
+               <font>
+                  <Font name="Urbanist Medium" size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#a10000" layoutX="14.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" wrappingWidth="413.0">
+               <font>
+                  <Font name="Comfortaa Regular" size="48.0" />
+               </font>
+            </Text>
             <TextField fx:id="plasma_tf_search" layoutX="381.0" layoutY="78.0" prefHeight="40.0" prefWidth="365.0" promptText="search by the id or the the name of the client :" styleClass="text-field1" stylesheets="@../css/stylesheet.css">
                <font>
                   <Font name="Urbanist Medium" size="14.0" />
@@ -24,6 +38,7 @@
                   <Insets left="20.0" />
                </padding>
             </TextField>
+            <Button fx:id="clients_btn_addnewclient" layoutX="777.0" layoutY="76.0" mnemonicParsing="false" onAction="#addnewclientAction" prefHeight="40.0" prefWidth="159.0" styleClass="button1" text="add new client" />
             <TableView fx:id="clients_tv" layoutX="15.0" layoutY="137.0" onMouseClicked="#onItemClick" prefHeight="472.0" prefWidth="1072.0" stylesheets="@../css/table-view.css">
                <columns>
                   <TableColumn fx:id="clients_tc_id" prefWidth="339.0" text="client id" />
@@ -31,17 +46,6 @@
                   <TableColumn fx:id="clients_tc_phonenumber" prefWidth="375.0" text="phone number" />
                </columns>
             </TableView>
-            <Text fill="#a10000" layoutX="14.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" wrappingWidth="413.0">
-               <font>
-                  <Font name="Comfortaa Regular" size="48.0" />
-               </font>
-            </Text>
-            <Text layoutX="15.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="search by the id or the the name of the client :" wrappingWidth="335.0">
-               <font>
-                  <Font name="Urbanist Medium" size="16.0" />
-               </font>
-            </Text>
-            <Button fx:id="clients_btn_addnewclient" layoutX="777.0" layoutY="76.0" mnemonicParsing="false" onAction="#addnewclientAction" prefHeight="40.0" prefWidth="159.0" styleClass="button1" text="add new client" />
          </children>
          <styleClass>
             <String fx:value="shadow-pane" />

@@ -101,12 +101,6 @@ public class AddNewDonorController
 
 
 
-
-
-
-
-
-
         ArrayList<Donor> newadded = new ArrayList<>();
 
         if (dfname.isEmpty() || dlname.isEmpty() || dbdate==null || dcin.isEmpty() || dpnumber.isEmpty()) {

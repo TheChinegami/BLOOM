@@ -9,11 +9,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.net.URL;
+import java.sql.ResultSet;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
+import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,7 +30,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 
-public class EditDonorInformationController {
+public class EditDonorInformationController implements Initializable {
 
         private Integer id ;
         private PreparedStatement statement;
@@ -61,29 +68,64 @@ public class EditDonorInformationController {
 
     @FXML
     private TextField editdonor_tf_phonenumber;
+    private ResultSet result;
 
 
 
 
 
+        @Override
+        public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        private class date extends DateTimeParseException {
+            try {
 
-            public date(String message, CharSequence parsedData, int errorIndex) {
-                super(message, parsedData, errorIndex);
+            statement = MyConnection.getCon().prepareStatement("select * from donor where id ="+(DonorsController.rowselected+1));
+            result= statement.executeQuery();
+            result.next();
+            editdonor_tf_firstname.setText(result.getString("first_name"));
+            editdonor_tf_lastname.appendText(result.getString("last_name"));
+            editdonor_tf_cin.appendText(result.getString("CIN"));
+            editdonor_tf_phonenumber.appendText(result.getString("phone_number"));
+            editdonor_dp_birthdate.setValue(result.getDate("Birth_date").toLocalDate());
+            editdonor_tf_emergencynumber.appendText(result.getString("emergency_number"));
+            editdonor_rb_false.setSelected(Boolean.parseBoolean(result.getString("Sickness")));
 
-            }
+
+             }catch (SQLException e){}
+            catch (ClassNotFoundException ex){}
+
         }
 
+//        void Load() throws SQLException, ClassNotFoundException {
+//
+//            ArrayList<Donor> list = new ArrayList<>();
+//            statement = MyConnection.getCon().prepareStatement("select * from donor where id ="+DonorsController.rowselected+1);
+//            result = statement.executeQuery();
+//            LocalDate d1;
+//            LocalDate d2;
+//            long age;
+//            Boolean sickcheck;
+//            String Sick= "true" ;
+//
+//            sickcheck = result.getBoolean("Sickness");
+//            // if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
+//
+//            editdonor_tf_cin.setText(result.getString("CIN"));
+//            editdonor_tf_firstname.setText(result.getString("first_name"));
+//            editdonor_tf_lastname.setText(result.getString("last_name"));
+//            editdonor_tf_phonenumber.setText(result.getString("phone_number"));
+//            editdonor_dp_birthdate.setValue(result.getDate("Birth_date").toLocalDate());
+//            editdonor_tf_emergencynumber.setText(result.getString("emergency_number"));
+//            editdonor_rb_false.setSelected(Boolean.parseBoolean(result.getString("Sickness")));
+//
+//
+//
+//
+//        }
 
         @FXML
         void editAction(ActionEvent event) throws SQLException, ClassNotFoundException {
             try {
-
-
-
-
-
 
 
                 String dfname = editdonor_tf_firstname.getText();
@@ -92,6 +134,7 @@ public class EditDonorInformationController {
                 String dcin = editdonor_tf_cin.getText();
                 String dpnumber = editdonor_tf_phonenumber.getText();
                 String denumber = editdonor_tf_emergencynumber.getText();
+
 
 
                 // condition checkers

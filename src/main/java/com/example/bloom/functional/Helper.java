@@ -41,7 +41,7 @@ public class Helper
         LocalDate d2;
         long age;
         Boolean sickcheck;
-        String Sick ;
+        String Sick= "true" ;
         Donor donor;
         while(result.next())
         {
@@ -49,7 +49,7 @@ public class Helper
             d1 = result.getDate("birth_date").toLocalDate();
             age = ChronoUnit.DAYS.between(d1,d2)/365;
             sickcheck = result.getBoolean("Sickness");
-            if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
+           // if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
             donor = new Donor(
                     result.getInt("id"),
                     result.getString("CIN"),

@@ -88,6 +88,7 @@ public class LoginController {
         stage.setResizable(true);
         stage.setMaximized(true);
         stage.show();
+
     }
 
     // this method invoke the alert dialog

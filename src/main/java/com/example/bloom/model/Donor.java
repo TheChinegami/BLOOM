@@ -1,6 +1,13 @@
 package com.example.bloom.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Donor extends Person {
+
+
     // attributes
 
     private long age;
@@ -71,4 +78,8 @@ public class Donor extends Person {
                 ", emergency number : "+this.emergencyNumber+
                 ", sickness : "+this.sickness;
     }
+
+
 }
+
+

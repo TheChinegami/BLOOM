@@ -31,6 +31,10 @@
     -fx-alignment: center-left;
     -fx-font-weight: bold;
 }
+.table-column{
+    -fx-alignment : CENTER;
+
+}
 
 .table-row-cell:odd {
     -fx-background-color: -fx-table-cell-border-color, #e1e1e1;
