@@ -29,7 +29,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="0df92ac1-672f-4c60-954c-56836872babc">
-      <console name="Bloom" type="STANDARD" schema="testforfx" session="Main"><![CDATA[select * from user;]]></console>
+      <console name="Bloom" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

@@ -11,15 +11,11 @@ public class RedCells extends Bag{
     public RedCells() {
     }
 
-    public RedCells(int id, LocalDate donationDate, String cin, String bloodType, LocalDate expirationDate) {
-        super(id, donationDate, cin, bloodType, expirationDate);
+    public RedCells(int id, LocalDate donationDate, String donorCin, String bagType, String bloodType) {
+        super(id, donationDate, donorCin, bagType, bloodType);
     }
 
     // calculate expiration date
-    @Override
-    public void setExpirationDate(LocalDate expirationDate) throws CustomException {
-        throw new CustomException("this attribute is calculated! you must insert the donationDate");
-    }
 
     @Override
     public LocalDate getExpirationDate() throws CustomException

@@ -8,21 +8,23 @@ public class Bag
 {
     // attributes
     private int id;
-    private LocalDate DonationDate;
-    private String donatorCin;
-    private String BloodType;
+    private LocalDate donationDate;
+    private String donorCin;
+    private String bagType;
+    private String bloodType;
+
     private LocalDate expirationDate;
 
     // constructor
     public Bag() {
     }
 
-    public Bag(int id, LocalDate donationDate, String donatorCin, String bloodType, LocalDate expirationDate) {
+    public Bag(int id, LocalDate donationDate, String donorCin, String bagType, String bloodType) {
         this.id = id;
-        DonationDate = donationDate;
-        this.donatorCin = donatorCin;
-        BloodType = bloodType;
-        this.expirationDate = expirationDate;
+        this.donationDate = donationDate;
+        this.donorCin = donorCin;
+        this.bagType = bagType;
+        this.bloodType = bloodType;
     }
 
     // setters and getters
@@ -35,35 +37,43 @@ public class Bag
     }
 
     public LocalDate getDonationDate() {
-        return DonationDate;
+        return donationDate;
     }
 
     public void setDonationDate(LocalDate donationDate) {
-        DonationDate = donationDate;
+        this.donationDate = donationDate;
     }
 
-    public String getDonatorCin() {
-        return donatorCin;
+    public String getDonorCin() {
+        return donorCin;
     }
 
-    public void setDonatorCin(String donatorCin) {
-        this.donatorCin = donatorCin;
+    public void setDonorCin(String donorCin) {
+        this.donorCin = donorCin;
     }
 
     public String getBloodType() {
-        return BloodType;
+        return bloodType;
     }
 
     public void setBloodType(String bloodType) {
-        BloodType = bloodType;
+        this.bloodType = bloodType;
+    }
+
+    public String getBagType() {
+        return bagType;
+    }
+
+    public void setBagType(String bagType) {
+        this.bagType = bagType;
     }
 
     public LocalDate getExpirationDate() throws CustomException {
-        return expirationDate;
+        throw new CustomException("you don't have the expiration date yet");
     }
 
     public void setExpirationDate(LocalDate expirationDate) throws CustomException {
-        this.expirationDate = expirationDate;
+        throw new CustomException("this attribute is calculated! you must insert the donationDate");
     }
 
     // add new bag
