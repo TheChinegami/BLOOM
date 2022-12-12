@@ -1,12 +1,13 @@
 package com.example.bloom.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Bill {
     // attributes
     private int id;
-    private Date billDate;
+    private LocalDate billDate;
     private double amount;
     private int idClient;
     private ArrayList<Bag> bagList;
@@ -15,7 +16,7 @@ public class Bill {
     public Bill() {
     }
 
-    public Bill(int id, Date billDate, double amount, int idClient) {
+    public Bill(int id, LocalDate billDate, double amount, int idClient) {
         this.id = id;
         this.billDate = billDate;
         this.amount = amount;
@@ -32,11 +33,11 @@ public class Bill {
         this.id = id;
     }
 
-    public Date getBillDate() {
+    public LocalDate getBillDate() {
         return billDate;
     }
 
-    public void setBillDate(Date billDate) {
+    public void setBillDate(LocalDate billDate) {
         this.billDate = billDate;
     }
 

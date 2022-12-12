@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="699.0" prefWidth="1124.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bloom.controller.InvoiceBagsController">
+   <children>
+      <Pane layoutX="12.0" layoutY="12.0" prefHeight="676.0" prefWidth="1101.0" style="-fx-background-color: #fff;" stylesheets="@../css/stylesheet.css">
+         <children>
+            <TextField fx:id="invoicebags_tf_search" layoutX="221.0" layoutY="79.0" prefHeight="40.0" prefWidth="365.0" promptText="search by the id of the bag :" styleClass="text-field1" stylesheets="@../css/stylesheet.css">
+               <font>
+                  <Font name="Urbanist Medium" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </TextField>
+            <TableView fx:id="invoicebags_tv" layoutX="15.0" layoutY="137.0" onMouseClicked="#onItemClick" prefHeight="472.0" prefWidth="1072.0" stylesheets="@../css/table-view.css">
+               <columns>
+                  <TableColumn fx:id="invoicebags_tc_bagid" prefWidth="154.0" text="bag id" />
+                  <TableColumn fx:id="invoicebags_tc_bagtype" prefWidth="176.0" text="bag type" />
+                  <TableColumn fx:id="invoicebags_tc_bloodtype" prefWidth="184.0" text="blood type" />
+                  <TableColumn fx:id="invoicebags_tc_donationdate" prefWidth="176.0" text="donation date" />
+                  <TableColumn fx:id="invoicebags_tc_donorcin" minWidth="0.0" prefWidth="201.0" text="donor cin" />
+                  <TableColumn fx:id="invoicebags_tc_expirationdate" prefWidth="180.0" text="expiration date" />
+               </columns>
+            </TableView>
+            <Text fill="#a10000" layoutX="14.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invoice bags" wrappingWidth="413.0">
+               <font>
+                  <Font name="Comfortaa Regular" size="48.0" />
+               </font>
+            </Text>
+            <Text layoutX="15.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="search by the id of the bag :" wrappingWidth="201.0">
+               <font>
+                  <Font name="Urbanist Medium" size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="invoicebags_btn_showbags" layoutX="928.0" layoutY="14.0" mnemonicParsing="false" onAction="#showBagAction" prefHeight="40.0" prefWidth="159.0" styleClass="button1" text="show bags" />
+         </children>
+         <styleClass>
+            <String fx:value="shadow-pane" />
+            <String fx:value="pane-radius" />
+         </styleClass>
+      </Pane>
+   </children>
+</AnchorPane>

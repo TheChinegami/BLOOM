@@ -11,15 +11,11 @@ public class Plasma extends Bag{
     public Plasma() {
     }
 
-    public Plasma(int id, LocalDate donationDate, String donatorCin, String bloodType, LocalDate expirationDate) {
-        super(id, donationDate, donatorCin, bloodType, expirationDate);
+    public Plasma(int id, LocalDate donationDate, String donorCin, String bagType, String bloodType) {
+        super(id, donationDate, donorCin, bagType,bloodType);
     }
 
     // calculate expiration date
-    @Override
-    public void setExpirationDate(LocalDate expirationDate) throws CustomException {
-        throw new CustomException("this attribute is calculated! you must insert the donationDate");
-    }
 
     @Override
     public LocalDate getExpirationDate() throws CustomException
