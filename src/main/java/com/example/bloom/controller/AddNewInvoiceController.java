@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -33,7 +34,7 @@ public class AddNewInvoiceController implements Initializable
     private ComboBox<String> addnewinvoice_cb_clientname;
 
     @FXML
-    private TextField addnewinvoice_tf_invoicedate;
+    private DatePicker addnewinvoice_tf_invoicedate;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -61,12 +62,12 @@ public class AddNewInvoiceController implements Initializable
     @FXML
     void addNewInvoiceAction(ActionEvent event)
     {
-        if(addnewinvoice_tf_invoicedate.getText().equals(""))
+        if(addnewinvoice_tf_invoicedate.getValue() == null)
         {
             Helper.getHelper().showAlert("you should insert the date first");
         }else
         {
-            LocalDate date = LocalDate.parse(addnewinvoice_tf_invoicedate.getText());
+            LocalDate date = LocalDate.parse(addnewinvoice_tf_invoicedate.getValue().toString());
             try
             {
                 Helper.getHelper().addNewInvoice(

@@ -11,8 +11,8 @@ public class RedCells extends Bag{
     public RedCells() {
     }
 
-    public RedCells(int id, LocalDate donationDate, String donorCin, String bagType, String bloodType) {
-        super(id, donationDate, donorCin, bagType, bloodType);
+    public RedCells(int id, LocalDate donationDate, int donorid, String bagType, String bloodType) {
+        super(id, donationDate, donorid, bagType, bloodType);
     }
 
     // calculate expiration date

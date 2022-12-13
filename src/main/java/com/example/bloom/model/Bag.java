@@ -9,7 +9,7 @@ public class Bag
     // attributes
     private int id;
     private LocalDate donationDate;
-    private String donorCin;
+    private int donorid;
     private String bagType;
     private String bloodType;
 
@@ -19,10 +19,10 @@ public class Bag
     public Bag() {
     }
 
-    public Bag(int id, LocalDate donationDate, String donorCin, String bagType, String bloodType) {
+    public Bag(int id, LocalDate donationDate, int donorid, String bagType, String bloodType) {
         this.id = id;
         this.donationDate = donationDate;
-        this.donorCin = donorCin;
+        this.donorid = donorid;
         this.bagType = bagType;
         this.bloodType = bloodType;
     }
@@ -44,12 +44,12 @@ public class Bag
         this.donationDate = donationDate;
     }
 
-    public String getDonorCin() {
-        return donorCin;
+    public int getDonorId() {
+        return donorid;
     }
 
-    public void setDonorCin(String donorCin) {
-        this.donorCin = donorCin;
+    public void setDonorId(int donorId) {
+        this.donorid = donorid;
     }
 
     public String getBloodType() {

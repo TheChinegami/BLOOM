@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="bags_anchorpane" prefHeight="790.0" prefWidth="1124.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bloom.controller.BagsController">
-   <children>
+      <children>
       <Text fill="#a10000" layoutX="29.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bags" wrappingWidth="413.0">
          <font>
             <Font name="Comfortaa Regular" size="48.0" />
@@ -26,7 +26,7 @@
       <AnchorPane fx:id="bags_pane" layoutX="6.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="77.0" style="-fx-background-color: #fff;" stylesheets="@../css/stylesheet.css" >
          <children>
             <Button fx:id="bags_btn_addnewbag" layoutX="671.0" layoutY="15.0" mnemonicParsing="false" onAction="#addNewBagAction" prefHeight="33.0" prefWidth="181.0" styleClass="button1" text="add new bag" />
-            <TextField fx:id="donors_tf_search" layoutX="265.0" layoutY="16.0" prefHeight="33.0" prefWidth="365.0" promptText="Type tp search by id " styleClass="text-field1" stylesheets="@../css/stylesheet.css">
+            <TextField fx:id="bags_tf_search" layoutX="265.0" layoutY="16.0" prefHeight="33.0" prefWidth="365.0" promptText="Type to search by id " styleClass="text-field1" stylesheets="@../css/stylesheet.css">
                <font>
                   <Font name="Urbanist Medium" size="14.0" />
                </font>
@@ -46,6 +46,7 @@
                <columns>
                   <TableColumn fx:id="bags_tc_bagid" prefWidth="339.0" text="bag id" />
                   <TableColumn fx:id="bags_tc_donorid" minWidth="0.0" prefWidth="356.0" text="donor id" />
+                  <TableColumn fx:id="bags_tc_bloodtype" minWidth="0.0" prefWidth="370.0" text="Blood type"/>
                   <TableColumn fx:id="bags_tc_donationdate" prefWidth="370.0" text="donation date" />
                </columns>
                <padding>

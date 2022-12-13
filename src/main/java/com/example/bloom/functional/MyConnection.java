@@ -16,7 +16,7 @@ public class MyConnection {
         if(con==null)
         {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/bloom","root","root");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/bloom","root","chanigui");
         }
         return con;
     }

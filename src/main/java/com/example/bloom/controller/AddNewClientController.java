@@ -1,4 +1,4 @@
 package com.example.bloom.controller;
 
-public class AddNewBagController {
+public class AddNewClientController {
 }

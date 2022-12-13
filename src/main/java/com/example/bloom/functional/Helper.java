@@ -23,24 +23,7 @@ public class Helper
             helper = new Helper();
         return helper;
     }
-
-    public void showAlert(String message)
-    {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Warning");
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-
-    public void showSuccess(String message)
-    {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-    public User getAdministrator() throws SQLException, ClassNotFoundException
-    {
+    public User getAdministrator() throws SQLException, ClassNotFoundException {
         statement = MyConnection.getCon().prepareStatement("select username,password from user");
         result = statement.executeQuery();
         result.next();
@@ -50,8 +33,7 @@ public class Helper
         return user;
     }
 
-    public ArrayList<Donor> getDonors() throws SQLException, ClassNotFoundException
-    {
+    public ArrayList<Donor> getDonors() throws SQLException, ClassNotFoundException {
         ArrayList<Donor> list = new ArrayList<>();
         statement = MyConnection.getCon().prepareStatement("select * from donor");
         result = statement.executeQuery();
@@ -67,7 +49,7 @@ public class Helper
             d1 = result.getDate("birth_date").toLocalDate();
             age = ChronoUnit.DAYS.between(d1,d2)/365;
             sickcheck = result.getBoolean("Sickness");
-           // if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
+            // if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
             donor = new Donor(
                     result.getInt("id"),
                     result.getString("CIN"),
@@ -82,9 +64,58 @@ public class Helper
         return list;
     }
 
+    public ArrayList<Client> getClients() throws SQLException, ClassNotFoundException {
 
-    public ArrayList<Donor> getDonorByindex(int id) throws SQLException,ClassNotFoundException
-    {
+        ArrayList<Client> list = new ArrayList<>();
+        statement = MyConnection.getCon().prepareStatement("select * from client");
+        result = statement.executeQuery();
+
+        Client client;
+        while(result.next())
+        {
+
+
+            // if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
+            client = new Client(
+                    result.getInt("id"),
+                    result.getString("name"),
+                    result.getString("phone_number"));
+
+            list.add(client);
+        }
+        return list;
+    }
+
+    public ArrayList<Bag> getBags() throws SQLException, ClassNotFoundException {
+
+        ArrayList<Bag> list = new ArrayList<>();
+        statement = MyConnection.getCon().prepareStatement("select bag.id , bag.donorid , bag.donationdate, bag.bloodtypeid, bag.billid, bag.bagtypeid from bag , donor where bag.donorid = donor.id ");
+        result = statement.executeQuery();
+
+        Bag bag;
+        while(result.next())
+        {
+
+
+
+            // if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
+            bag = new Bag(
+
+                    result.getInt("id"),
+                    result.getDate("donationDate").toLocalDate(),
+                    result.getInt("donorid"),
+                    result.getString("bagtypeid"),
+                    result.getString("bloodtypeid"));
+
+            list.add(bag);
+        }
+        return list;
+    }
+
+
+
+
+    public ArrayList<Donor> getDonorByindex(int id) throws SQLException,ClassNotFoundException{
 
         ArrayList<Donor> list = new ArrayList<>();
         statement = MyConnection.getCon().prepareStatement("select * from donor where id ="+id);
@@ -117,6 +148,20 @@ public class Helper
 
     }
 
+    public void showAlert(String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("warning");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+    public void showSuccess(String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
     // to get the bill or the invoices
     public ArrayList<Bill> getAllInvoices() throws SQLException, ClassNotFoundException
     {
@@ -345,7 +390,7 @@ public class Helper
                     result.getDouble("price"),
                     result.getInt("quantity"),
                     result.getDouble("price per row")
-                    ));
+            ));
         }
         return list;
     }
@@ -388,7 +433,7 @@ public class Helper
                 bag = new RedCells(
                         result.getInt(1),
                         newDate,
-                        result.getString(2),
+                        result.getInt(2),
                         "red cells",
                         result.getString(5)
                 );
@@ -397,7 +442,7 @@ public class Helper
                 bag = new Plasma(
                         result.getInt(1),
                         newDate,
-                        result.getString(2),
+                        result.getInt(2),
                         "plasma",
                         result.getString(5)
                 );
@@ -406,7 +451,7 @@ public class Helper
                 bag = new Platelets(
                         result.getInt(1),
                         newDate,
-                        result.getString(2),
+                        result.getInt(2),
                         "platelets",
                         result.getString(5)
                 );

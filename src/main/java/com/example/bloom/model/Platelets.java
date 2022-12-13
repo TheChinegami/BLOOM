@@ -11,8 +11,8 @@ public class Platelets extends Bag{
     public Platelets() {
     }
 
-    public Platelets(int id, LocalDate donationDate, String donorCin, String bagType, String bloodType) {
-        super(id, donationDate, donorCin, bagType, bloodType);
+    public Platelets(int id, LocalDate donationDate, int donorid, String bagType, String bloodType) {
+        super(id, donationDate, donorid, bagType, bloodType);
     }
 
     // calculate expiration date
