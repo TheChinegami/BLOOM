@@ -32,6 +32,8 @@ import java.util.ArrayList;
 
 public class EditDonorInformationController implements Initializable {
 
+
+
         private Integer id ;
         private PreparedStatement statement;
 
@@ -79,7 +81,7 @@ public class EditDonorInformationController implements Initializable {
 
             try {
 
-            statement = MyConnection.getCon().prepareStatement("select * from donor where id ="+(DonorsController.rowselected+1));
+            statement = MyConnection.getCon().prepareStatement("select * from donor where id ="+(DonorsController.selectedDonor));
             result= statement.executeQuery();
             result.next();
             editdonor_tf_firstname.setText(result.getString("first_name"));
@@ -88,7 +90,8 @@ public class EditDonorInformationController implements Initializable {
             editdonor_tf_phonenumber.appendText(result.getString("phone_number"));
             editdonor_dp_birthdate.setValue(result.getDate("Birth_date").toLocalDate());
             editdonor_tf_emergencynumber.appendText(result.getString("emergency_number"));
-            editdonor_rb_false.setSelected(Boolean.parseBoolean(result.getString("Sickness")));
+            if (result.getBoolean("sickness")){editdonor_rb_true.setSelected(true);}
+            else {editdonor_rb_false.setSelected(true);}
 
 
              }catch (SQLException e){}
@@ -134,6 +137,10 @@ public class EditDonorInformationController implements Initializable {
                 String dcin = editdonor_tf_cin.getText();
                 String dpnumber = editdonor_tf_phonenumber.getText();
                 String denumber = editdonor_tf_emergencynumber.getText();
+                Boolean sick = false ;
+
+                if ( editdonor_rb_true.isSelected() ) {sick = true ; }
+                else if (editdonor_rb_false.isSelected() ){sick = false;}
 
 
 
@@ -170,13 +177,15 @@ public class EditDonorInformationController implements Initializable {
 
 
                 if(phonecheck && emptycheck && emegencycheck && datecheck) {
-                    statement = MyConnection.getCon().prepareStatement("update donor set (first_name,last_name,Birth_date,CIN,phone_number,Emergency_number) values (?,?,?,?,?,?)");
+                    statement = MyConnection.getCon().prepareStatement("update donor set first_name = ? , last_name = ? ,Birth_date = ? ,CIN = ? ,phone_number = ?,Emergency_number = ?, Sickness = ? where id = ?");
                     statement.setString(1, dfname);
                     statement.setString(2, dlname);
                     statement.setString(3, dbdate.toString());
                     statement.setString(4, dcin);
                     statement.setString(5, dpnumber);
                     statement.setString(6, denumber);
+                    statement.setBoolean(7, sick);
+                    statement.setInt(8,DonorsController.selectedDonor);
                     statement.execute();
                     Helper.getHelper().showSuccess("THE DONOR'S INFORMATIONS HAS BEEN SUCCESSFULLY EDITED !");
 

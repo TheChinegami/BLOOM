@@ -7,12 +7,18 @@ import java.time.temporal.ChronoUnit;
 
 public class Plasma extends Bag{
 
+    LocalDate expirationdate ;
+
     // constructor
     public Plasma() {
     }
 
     public Plasma(int id, LocalDate donationDate, int donorid, String bagType, String bloodType) {
         super(id, donationDate, donorid, bagType,bloodType);
+    }
+    public Plasma(int id, LocalDate donationDate, int donorid, String bagType, String bloodType , LocalDate expirationdate) {
+        super(id, donationDate, donorid, bagType, bloodType);
+        this.expirationdate=expirationdate ;
     }
 
     // calculate expiration date

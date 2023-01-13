@@ -60,7 +60,7 @@ public class InvoiceBagsController implements Initializable {
         invoicebags_tc_bagtype.setCellValueFactory(new PropertyValueFactory<Bag,String>("bagType"));
         invoicebags_tc_bloodtype.setCellValueFactory(new PropertyValueFactory<Bag,String>("bloodType"));
         invoicebags_tc_donationdate.setCellValueFactory(new PropertyValueFactory<Bag,LocalDate>("donationDate"));
-        invoicebags_tc_donorcin.setCellValueFactory(new PropertyValueFactory<Bag,String>("donorCin"));
+        invoicebags_tc_donorcin.setCellValueFactory(new PropertyValueFactory<Bag,String>("donorId"));
         invoicebags_tc_expirationdate.setCellValueFactory(new PropertyValueFactory<Bag,LocalDate>("expirationDate"));
     }
     @FXML

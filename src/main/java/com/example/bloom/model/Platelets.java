@@ -7,12 +7,19 @@ import java.time.temporal.ChronoUnit;
 
 public class Platelets extends Bag{
 
+    LocalDate expirationdate ;
+
     // constructor
     public Platelets() {
     }
 
     public Platelets(int id, LocalDate donationDate, int donorid, String bagType, String bloodType) {
         super(id, donationDate, donorid, bagType, bloodType);
+    }
+
+    public Platelets(int id, LocalDate donationDate, int donorid, String bagType, String bloodType, LocalDate expirationdate) {
+        super(id, donationDate, donorid, bagType, bloodType);
+        this.expirationdate=expirationdate;
     }
 
     // calculate expiration date

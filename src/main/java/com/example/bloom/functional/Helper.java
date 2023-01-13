@@ -3,13 +3,11 @@ package com.example.bloom.functional;
 import com.example.bloom.model.*;
 import javafx.scene.control.Alert;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Helper
 {
@@ -41,7 +39,7 @@ public class Helper
         LocalDate d2;
         long age;
         Boolean sickcheck;
-        String Sick= "true" ;
+        String Sick= "false" ;
         Donor donor;
         while(result.next())
         {
@@ -49,7 +47,38 @@ public class Helper
             d1 = result.getDate("birth_date").toLocalDate();
             age = ChronoUnit.DAYS.between(d1,d2)/365;
             sickcheck = result.getBoolean("Sickness");
-            // if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
+            Sick = sickcheck.toString();
+           donor = new Donor(
+                    result.getInt("id"),
+                    result.getString("CIN"),
+                    result.getString("first_name"),
+                    result.getString("last_name"),
+                    result.getString("phone_number"),
+                    age,
+                    result.getString("emergency_number"),
+                    Sick);
+            list.add(donor);
+        }
+        return list;
+    }
+
+    public ArrayList<Donor> getHealthyDonors() throws SQLException, ClassNotFoundException {
+        ArrayList<Donor> list = new ArrayList<>();
+        statement = MyConnection.getCon().prepareStatement("select * from donor where sickness = false");
+        result = statement.executeQuery();
+        LocalDate d1;
+        LocalDate d2;
+        long age;
+        Boolean sickcheck;
+        String Sick= "false" ;
+        Donor donor;
+        while(result.next())
+        {
+            d2 = LocalDate.now();
+            d1 = result.getDate("birth_date").toLocalDate();
+            age = ChronoUnit.DAYS.between(d1,d2)/365;
+            sickcheck = result.getBoolean("Sickness");
+            Sick = sickcheck.toString();
             donor = new Donor(
                     result.getInt("id"),
                     result.getString("CIN"),
@@ -86,18 +115,54 @@ public class Helper
         return list;
     }
 
-    public ArrayList<Bag> getBags() throws SQLException, ClassNotFoundException {
+    public ArrayList<Bag> getTreatedBags() throws SQLException, ClassNotFoundException {
 
         ArrayList<Bag> list = new ArrayList<>();
         statement = MyConnection.getCon().prepareStatement("select bag.id , bag.donorid , bag.donationdate, bag.bloodtypeid, bag.billid, bag.bagtypeid from bag , donor where bag.donorid = donor.id ");
         result = statement.executeQuery();
 
         Bag bag;
+        String bloodtp = null;
         while(result.next())
         {
 
 
 
+            switch(result.getString("bloodtypeid")){
+                case "1":
+                    bloodtp = "A+";
+                    break;
+
+                case "2":
+                    bloodtp = "A-";
+                    break;
+
+                case "3":
+                    bloodtp = "B+";
+                    break;
+
+                case "4":
+                    bloodtp = "B-";
+                    break;
+
+                case "5":
+                    bloodtp = "AB+";
+                    break;
+
+                case "6":
+                    bloodtp = "AB-";
+                    break;
+
+                case "7":
+                    bloodtp = "O+";
+                    break;
+
+                case "8":
+                    bloodtp = "OO-";
+                    break;
+            }
+
+            if (result.getInt("bagtypeid") == 0 || result.getInt("bagtypeid") == 4){
             // if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
             bag = new Bag(
 
@@ -105,47 +170,289 @@ public class Helper
                     result.getDate("donationDate").toLocalDate(),
                     result.getInt("donorid"),
                     result.getString("bagtypeid"),
-                    result.getString("bloodtypeid"));
+                    bloodtp);
 
             list.add(bag);
+        }}
+        return list;
+    }
+
+    public String getbloodtypebyid(int id){
+
+            String bloodtp = null ;
+
+        switch(id){
+            case 1:
+                bloodtp = "A+";
+                break;
+
+            case 2:
+                bloodtp = "A-";
+                break;
+
+            case 3:
+                bloodtp = "B+";
+                break;
+
+            case 4:
+                bloodtp = "B-";
+                break;
+
+            case 5:
+                bloodtp = "AB+";
+                break;
+
+            case 6:
+                bloodtp = "AB-";
+                break;
+
+            case 7:
+                bloodtp = "O+";
+                break;
+
+            case 8:
+                bloodtp = "O-";
+                break;
         }
+        return bloodtp;
+    }
+    public ArrayList<Bag> getredcellsBags() throws SQLException, ClassNotFoundException {
+
+        ArrayList<Bag> list = new ArrayList<>();
+        statement = MyConnection.getCon().prepareStatement("select bag.id , bag.donorid , bag.donationdate, bag.bloodtypeid, bag.billid, bag.bagtypeid, bag.expirationdate from bag , donor where bag.donorid = donor.id ");
+        result = statement.executeQuery();
+
+        Bag bag;
+        String bloodtp = null;
+        while(result.next())
+        {
+
+
+
+            switch(result.getString("bloodtypeid")){
+                case "1":
+                    bloodtp = "A+";
+                    break;
+
+                case "2":
+                    bloodtp = "A-";
+                    break;
+
+                case "3":
+                    bloodtp = "B+";
+                    break;
+
+                case "4":
+                    bloodtp = "B-";
+                    break;
+
+                case "5":
+                    bloodtp = "AB+";
+                    break;
+
+                case "6":
+                    bloodtp = "AB-";
+                    break;
+
+                case "7":
+                    bloodtp = "O+";
+                    break;
+
+                case "8":
+                    bloodtp = "O-";
+                    break;
+            }
+
+            if (result.getInt("bagtypeid") == 1){
+                // if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
+                RedCells redCells = new RedCells(
+
+                        result.getInt("id"),
+                        result.getDate("donationDate").toLocalDate(),
+                        result.getInt("donorid"),
+                        result.getString("bagtypeid"),
+                        bloodtp);
+
+                list.add(redCells);
+            }}
+        return list;
+    }
+    public ArrayList<Bag> getplasmaBags() throws SQLException, ClassNotFoundException {
+
+        ArrayList<Bag> list = new ArrayList<>();
+        statement = MyConnection.getCon().prepareStatement("select bag.id , bag.donorid , bag.donationdate, bag.bloodtypeid, bag.billid, bag.bagtypeid, bag.expirationdate from bag , donor where bag.donorid = donor.id ");
+        result = statement.executeQuery();
+
+        Bag bag;
+        String bloodtp = null;
+        while(result.next())
+        {
+
+
+
+            switch(result.getString("bloodtypeid")){
+                case "1":
+                    bloodtp = "A+";
+                    break;
+
+                case "2":
+                    bloodtp = "A-";
+                    break;
+
+                case "3":
+                    bloodtp = "B+";
+                    break;
+
+                case "4":
+                    bloodtp = "B-";
+                    break;
+
+                case "5":
+                    bloodtp = "AB+";
+                    break;
+
+                case "6":
+                    bloodtp = "AB-";
+                    break;
+
+                case "7":
+                    bloodtp = "O+";
+                    break;
+
+                case "8":
+                    bloodtp = "O-";
+                    break;
+            }
+
+            if (result.getInt("bagtypeid") == 2){
+                // if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
+                Plasma plasma = new Plasma(
+
+                        result.getInt("id"),
+                        result.getDate("donationDate").toLocalDate(),
+                        result.getInt("donorid"),
+                        result.getString("bagtypeid"),
+                        bloodtp,
+                        result.getDate("expirationdate").toLocalDate());
+
+                list.add(plasma);
+            }}
+        return list;
+    }
+
+    public ArrayList<Platelets> getplatletsBags() throws SQLException, ClassNotFoundException {
+
+        ArrayList<Platelets> list = new ArrayList<>();
+        statement = MyConnection.getCon().prepareStatement("select bag.id , bag.donorid , bag.donationdate, bag.bloodtypeid, bag.billid, bag.bagtypeid, bag.expirationdate from bag , donor where bag.donorid = donor.id ");
+        result = statement.executeQuery();
+
+        Bag bag;
+        String bloodtp = null;
+        while(result.next())
+        {
+
+
+
+            switch(result.getString("bloodtypeid")){
+                case "1":
+                    bloodtp = "A+";
+                    break;
+
+                case "2":
+                    bloodtp = "A-";
+                    break;
+
+                case "3":
+                    bloodtp = "B+";
+                    break;
+
+                case "4":
+                    bloodtp = "B-";
+                    break;
+
+                case "5":
+                    bloodtp = "AB+";
+                    break;
+
+                case "6":
+                    bloodtp = "AB-";
+                    break;
+
+                case "7":
+                    bloodtp = "O+";
+                    break;
+
+                case "8":
+                    bloodtp = "O-";
+                    break;
+            }
+
+            if (result.getInt("bagtypeid") == 3){
+                // if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
+                Platelets platelets = new Platelets(
+
+                        result.getInt("id"),
+                        result.getDate("donationDate").toLocalDate(),
+                        result.getInt("donorid"),
+                        result.getString("bagtypeid"),
+                        bloodtp,
+                        result.getDate("expirationdate").toLocalDate());
+
+                list.add(platelets);
+            }}
         return list;
     }
 
 
 
+//    public ArrayList<Donor> getDonorByindex(int id) throws SQLException,ClassNotFoundException{
+//
+//        ArrayList<Donor> list = new ArrayList<>();
+//        statement = MyConnection.getCon().prepareStatement("select * from donor where id ="+id);
+//        result = statement.executeQuery();
+//        LocalDate d1;
+//        LocalDate d2;
+//        long age;
+//        Boolean sickcheck;
+//        String Sick ;
+//        Donor donor;
+//        while(result.next())
+//        {
+//            d2 = LocalDate.now();
+//            d1 = result.getDate("birth_date").toLocalDate();
+//            age = ChronoUnit.DAYS.between(d1,d2)/365;
+//            sickcheck = result.getBoolean("Sickness");
+//            if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
+//            donor = new Donor(
+//                    result.getInt("id"),
+//                    result.getString("CIN"),
+//                    result.getString("first_name"),
+//                    result.getString("last_name"),
+//                    result.getString("phone_number"),
+//                    age,
+//                    result.getString("emergency_number"),
+//                    Sick);
+//            list.add(donor);
+//        }
+//        return list;
+//
+//    }
 
-    public ArrayList<Donor> getDonorByindex(int id) throws SQLException,ClassNotFoundException{
+    public ArrayList<ArrayList> getbloodtypes(){
 
-        ArrayList<Donor> list = new ArrayList<>();
-        statement = MyConnection.getCon().prepareStatement("select * from donor where id ="+id);
-        result = statement.executeQuery();
-        LocalDate d1;
-        LocalDate d2;
-        long age;
-        Boolean sickcheck;
-        String Sick ;
-        Donor donor;
-        while(result.next())
-        {
-            d2 = LocalDate.now();
-            d1 = result.getDate("birth_date").toLocalDate();
-            age = ChronoUnit.DAYS.between(d1,d2)/365;
-            sickcheck = result.getBoolean("Sickness");
-            if (sickcheck.toString() == " "){Sick =" Unknown"; System.out.println("this condition is working "+sickcheck+" "+Sick);}else {Sick=sickcheck.toString();System.out.println("this condition is FUCKED "+sickcheck+" "+Sick);};
-            donor = new Donor(
-                    result.getInt("id"),
-                    result.getString("CIN"),
-                    result.getString("first_name"),
-                    result.getString("last_name"),
-                    result.getString("phone_number"),
-                    age,
-                    result.getString("emergency_number"),
-                    Sick);
-            list.add(donor);
-        }
-        return list;
 
+        ArrayList bloodtypes = new ArrayList();
+
+        bloodtypes.add("A+");
+        bloodtypes.add("B+");
+        bloodtypes.add("AB+");
+        bloodtypes.add("O+");
+        bloodtypes.add("A-");
+        bloodtypes.add("B-");
+        bloodtypes.add("AB-");
+        bloodtypes.add("O-");
+
+        return  bloodtypes;
     }
 
     public void showAlert(String message)
@@ -418,7 +725,7 @@ public class Helper
     public ArrayList<Bag> getBagsOfBill(int billId) throws SQLException, ClassNotFoundException
     {
         ArrayList<Bag> list = new ArrayList();
-        statement = MyConnection.getCon().prepareStatement("select a.id,c.cin,a.donationdate,d.type,b.type from bag a,bloodtype b, donor c, bagtype d where a.bloodtypeid = b.id and a.donorid = c.id and a.bagtypeid = d.id and a.billid = ?;");
+        statement = MyConnection.getCon().prepareStatement("select a.id,c.id,a.donationdate,d.type,b.type from bag a,bloodtype b, donor c, bagtype d where a.bloodtypeid = b.id and a.donorid = c.id and a.bagtypeid = d.id and a.billid = ?;");
         statement.setInt(1,billId);
         result = statement.executeQuery();
         Bag bag = null;

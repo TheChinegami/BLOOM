@@ -1,5 +1,6 @@
 package com.example.bloom.controller;
 
+import com.example.bloom.HelloApplication;
 import com.example.bloom.functional.Helper;
 import com.example.bloom.model.Client;
 import com.example.bloom.model.Donor;
@@ -9,14 +10,21 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -24,6 +32,9 @@ import java.util.ResourceBundle;
 public class ClientsController implements Initializable
 {
 
+    private int index ;
+
+    public static int selectedClient ;
     @FXML
     private Button clients_btn_addnewclient;
 
@@ -92,12 +103,70 @@ public class ClientsController implements Initializable
     }
 
     @FXML
-    void onItemClick(MouseEvent event) {
+    void onItemClick(MouseEvent mouseEvent) {
+
+        index = clients_tv.getSelectionModel().getSelectedIndex();
+        System.out.println(index);
+        if (mouseEvent.getClickCount() == 2 && index != -1){
+
+
+            selectedClient=clients_tc_id.getCellData(index) ;
+
+
+            Stage stagesrc = (Stage)((Node) mouseEvent.getSource()).getScene().getWindow();
+//        index = donors_tv.getSelectionModel().getSelectedIndex();
+//
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/edit-client-info.fxml"));
+            Scene scene = null;
+            Image icon = null;
+            try
+            {
+                icon = new Image(HelloApplication.class.getResource("image/icon.png").openStream()); // set the header icon to the stage
+                scene = new Scene(fxmlLoader.load(),420,400);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            stage.getIcons().add(icon);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initOwner(stagesrc);
+            stage.show();
+        }
+
+
+
+
+
+
 
     }
 
     @FXML
     void addnewclientAction(ActionEvent event) {
+
+        Stage stagesrc = (Stage)((Node) event.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/add-new-client.fxml"));
+
+
+        Scene scene = null;
+        Image icon = null;
+        try {
+            icon = new Image(HelloApplication.class.getResource("image/icon.png").openStream()); // set the header icon to the stage
+            scene = new Scene(fxmlLoader.load(), 420, 400);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try{
+            Stage stage = new Stage();
+            stage.getIcons().add(icon);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initOwner(stagesrc);
+            stage.show();
+
+        }
+        catch (Exception ie) {System.out.println(ie);}
 
     }
 

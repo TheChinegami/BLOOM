@@ -42,7 +42,7 @@
                   <TableColumn fx:id="redcells_tc_donorid" minWidth="0.0" prefWidth="262.0" text="donor id" />
                   <TableColumn fx:id="redcells_tc_bloodtype" prefWidth="263.0" text="blood type" />
                   <TableColumn fx:id="redcells_tc_donationdate" minWidth="4.0" prefWidth="268.0" text="donation date" />
-                  <TableColumn fx:id="redcells_tc_expirationate" minWidth="4.0" prefWidth="268.0" text="expiration date" />
+                  <TableColumn fx:id="redcells_tc_expirationdate" minWidth="4.0" prefWidth="268.0" text="expiration date" />
 
                </columns>
                <padding>

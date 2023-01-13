@@ -7,12 +7,18 @@ import java.time.temporal.ChronoUnit;
 
 public class RedCells extends Bag{
 
+    LocalDate expirationdate ;
+
     // constructor
     public RedCells() {
     }
 
     public RedCells(int id, LocalDate donationDate, int donorid, String bagType, String bloodType) {
         super(id, donationDate, donorid, bagType, bloodType);
+    }
+    public RedCells(int id, LocalDate donationDate, int donorid, String bagType, String bloodType , LocalDate expirationdate) {
+        super(id, donationDate, donorid, bagType, bloodType);
+        this.expirationdate=expirationdate ;
     }
 
     // calculate expiration date

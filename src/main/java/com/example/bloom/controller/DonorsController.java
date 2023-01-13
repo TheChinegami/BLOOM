@@ -38,7 +38,7 @@ import java.util.function.Function;
 
 public class DonorsController implements Initializable {
 
-    public static int rowselected ;
+    public static int selectedDonor ;
 
     private Integer index;
 
@@ -151,17 +151,18 @@ public class DonorsController implements Initializable {
     @FXML
     public void onItemClick(MouseEvent mouseEvent)  {
 
-        TablePosition tablePosition = donors_tv.getSelectionModel().getSelectedCells().get(0);
-        tablePosition.getColumn();
-        TableColumn tableColumn = tablePosition.getTableColumn();
-        tableColumn.getCellObservableValue(0);
+//        TablePosition tablePosition = donors_tv.getSelectionModel().getSelectedCells().get(0);
+//        tablePosition.getColumn();
+//        TableColumn tableColumn = tablePosition.getTableColumn();
+//        tableColumn.getCellObservableValue(0);
 
-        if (mouseEvent.getClickCount() == 2 && tablePosition.getColumn() != -1){
-            int row =   tablePosition.getRow();
+        index = donors_tv.getSelectionModel().getSelectedIndex();
 
-            rowselected=row;
-            System.out.println("Double click on: "+ row + " *** " + tablePosition.getColumn() );
-            System.out.println(tableColumn.getCellObservableValue(0));
+        if (mouseEvent.getClickCount() == 2 && index != -1){
+
+
+            selectedDonor=donors_tc_donorId.getCellData(index) ;
+
 
         Stage stagesrc = (Stage)((Node) mouseEvent.getSource()).getScene().getWindow();
 //        index = donors_tv.getSelectionModel().getSelectedIndex();

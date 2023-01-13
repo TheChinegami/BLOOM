@@ -24,7 +24,7 @@
       </Text>
       <AnchorPane layoutX="6.0" style="-fx-background-color: #fff;" stylesheets="@../css/stylesheet.css" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="77.0">
          <children>
-            <TextField fx:id="redcells_tf_search" layoutX="305.0" layoutY="17.0" prefHeight="33.0" prefWidth="365.0" promptText="Type tp search by id " styleClass="text-field1" stylesheets="@../css/stylesheet.css">
+            <TextField fx:id="platelets_tf_search" layoutX="305.0" layoutY="17.0" prefHeight="33.0" prefWidth="365.0" promptText="Type tp search by id " styleClass="text-field1" stylesheets="@../css/stylesheet.css">
                <font>
                   <Font name="Urbanist Medium" size="14.0" />
                </font>

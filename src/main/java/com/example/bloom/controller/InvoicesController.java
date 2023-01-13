@@ -126,6 +126,7 @@ public class InvoicesController implements Initializable {
     void onItemClick(MouseEvent event)
     {
         index = invoices_tv.getSelectionModel().getSelectedIndex();
+        System.out.println(index);
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/invoice_details.fxml"));
         Scene scene = null;
         Image icon = null;

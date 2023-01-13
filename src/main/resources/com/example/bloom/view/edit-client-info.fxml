@@ -6,16 +6,16 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="424.0" style="-fx-background-color: #f4f4f4f4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bloom.controller.AddNewClientController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="424.0" style="-fx-background-color: #f4f4f4f4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bloom.controller.EditClientInformationController">
     <children>
         <Pane layoutX="12.0" layoutY="12.0" prefHeight="354.0" prefWidth="400.0" style="-fx-background-color: #fff;" stylesheets="@../css/stylesheet.css">
             <children>
-                <Text fill="#a10000" layoutX="14.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new client" wrappingWidth="413.0">
+                <Text fill="#a10000" layoutX="14.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit client Informations" wrappingWidth="413.0">
                     <font>
-                        <Font name="Comfortaa Regular" size="48.0" />
+                        <Font size="35.0" />
                     </font>
                 </Text>
                 <Text layoutX="27.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client name :" wrappingWidth="95.0">
@@ -23,15 +23,15 @@
                         <Font name="Urbanist Medium" size="16.0" />
                     </font>
                 </Text>
-                <Button fx:id="clients_btn_addnewbag" layoutX="197.0" layoutY="245.0" mnemonicParsing="false" onAction="#addNewClientAction" prefHeight="40.0" prefWidth="171.0" styleClass="button1" text="add" />
-                <Button fx:id="clients_btn_addnewbagcancel" layoutX="14.0" layoutY="245.0" mnemonicParsing="false" onAction="#cancelAction" prefHeight="40.0" prefWidth="171.0" styleClass="button1" text="cancel" />
+                <Button fx:id="clients_btn_editclientedit" layoutX="197.0" layoutY="245.0" mnemonicParsing="false" onAction="#editClientAction" prefHeight="40.0" prefWidth="171.0" styleClass="button1" text="Edit" />
+                <Button fx:id="clients_btn_editclientcancel" layoutX="14.0" layoutY="245.0" mnemonicParsing="false" onAction="#cancelAction" prefHeight="40.0" prefWidth="171.0" styleClass="button1" text="cancel" />
                 <Text layoutX="27.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client phone :" wrappingWidth="113.0">
                     <font>
                         <Font name="Urbanist Medium" size="16.0" />
                     </font>
                 </Text>
-            <TextField fx:id="addnewclient_tf_clientname" layoutX="208.0" layoutY="107.0" />
-            <TextField fx:id="addnewclient_tf_clientphone" layoutX="208.0" layoutY="154.0" promptText="XX-XX-XX-XX-XX" />
+                <TextField fx:id="editclientinfo_tf_clientname" layoutX="208.0" layoutY="107.0" />
+                <TextField fx:id="editclientinfo_tf_clientphone" layoutX="208.0" layoutY="154.0" promptText="XX-XX-XX-XX-XX" />
             </children>
             <styleClass>
                 <String fx:value="shadow-pane" />
