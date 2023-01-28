@@ -10,7 +10,6 @@ blood donation by managing the data of each donor1 and the blood bag donated thr
 The team members are :
 
     Mouad Kaaid             as Mouad002
-    Mohamed Amine Chichakl  as Chichakl
     Mohamed Chanigui        as THeChinegami
 
 Under the supervision of :
